@@ -1,24 +1,27 @@
 import React from 'react';
 
 const VideoDetail = ({ video }) => {
+  console.log(video);
   if (!video) {
-    return <div>Loading...</div>
+    return <div>No results...</div>
   }
 
-  const videoId = video.id;
-  const url = video.heroImage.link
+  if (video.length < 5) {
+    return <div>Not enough matches.  Try again.</div>
+  }
   
-  return (
-    <div id="selected-img" className="video-detail col-md-8">
+  let imgUrl = video.images[0].link;
+    return (
+    <div id="selected-img">
       <div className="embed-responsive embed-responsive-16by9">
-        <img id="img-display" className="embed-responsive-item" src={url} />
+        <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
       </div>
       <div className="details">
         <div>{ video.name }</div>
-        <div>{ video.description }</div>
+        <div>{ video.title }</div>
       </div>
     </div>
-  )
+    )
 };
 
 export default VideoDetail;

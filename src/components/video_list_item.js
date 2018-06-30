@@ -1,7 +1,12 @@
 import React from 'react';
 
 const VideoListItem = ({ video, onVideoSelect }) => {
-  const imgUrl = video.heroImage.link;
+  let imgUrl = '';
+  if (!video.images) {
+    imgUrl = video.link;
+  } else {
+    imgUrl = video.images[0].link
+  }
 
   return (
     <li style={{ display: 'inline-block', margin: '20px 20px 20px' }} onClick={ () => onVideoSelect(video) } className="list-group-item">

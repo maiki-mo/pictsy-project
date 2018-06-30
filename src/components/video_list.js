@@ -4,7 +4,7 @@ import VideoListItem from './video_list_item';
 const VideoList = (props) => {
 
   const videoItems = props.videos.map((video) => {
-    if (video.heroImage != null) {
+    if (video != null) {
       // console.log(video.heroImage.link);
     return (
       <VideoListItem

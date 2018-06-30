@@ -14,26 +14,41 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      viralCheck: 0,
+      sfwCheck: 0,
+      animCheck: 0
     };
 
-    this.imgSearch('defaults');
+    this.imgSearch('cats');
   }
 
   imgSearch(term) {
-    var rootUrl = 'https://api.imgur.com/3/topics/';
+    var rootUrl = 'https://api.imgur.com/3/gallery/t/';
+
     return fetch(rootUrl + term, {
       headers: {
         'Authorization': 'Client-ID ' + apiKey
       }
-    }).then ((res) => {
+    }).then((res) => {
       return res.json();
     }).then ((data) => {
+      // console.log(data.data.items);
+      let newData = [];
+      for (let img in data.data.items) {
+        if (data.data.items[img].images) {
+          if (data.data.items[img].images[0].type === 'image/jpeg' || data.data.items[img].images[0].type === 'image/gif' ) {
+            newData.push(data.data.items[img]);
+          }
+        }
+      }
+      
       this.setState({
-        videos: data.data,
-        selectedVideo: data.data[0]
+        videos: newData,
+        selectedVideo: newData[0]
       })
-    })
+      }
+    )
   }
 
   render() {
@@ -43,12 +58,12 @@ class App extends Component {
 
     return (
       <div>
-      < SearchBar onSearchTermChange={ imgSearch }/>
-      < VideoDetail video={ this.state.selectedVideo }/>
-      < VideoList 
-        onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
-        videos={ this.state.videos } />
-    </div>
+        < SearchBar onSearchTermChange={ imgSearch }/>
+        < VideoDetail video={ this.state.selectedVideo }/>
+        < VideoList 
+          onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
+          videos={ this.state.videos } />
+      </div>
     );
    }
 };
