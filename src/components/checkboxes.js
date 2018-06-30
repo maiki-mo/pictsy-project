@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Checkbox = ({ checkBoxes, changeBox }) => {
-
+const Checkbox = ({ imgDisplayState, changeBox }) => {
   return (
   <div id="check-boxes">
     <br />

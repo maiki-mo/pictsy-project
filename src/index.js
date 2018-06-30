@@ -17,9 +17,9 @@ class App extends Component {
       videos: [],
       selectedVideo: null,
       checkBoxes: {
-        viral: false,
-        sfw: false,
-        animated: false
+        viral: true,
+        sfw: true,
+        animated: true
       }
     };
 
@@ -55,10 +55,37 @@ class App extends Component {
 
   // method used for handle checkbox events & filtering displayed videos
   changeBox(e) {
+    // changes the current values of the checkBox states to either true || false for filtering
     let name = e.target.name;
     let value = this.state.checkBoxes[name]
     this.state.checkBoxes[name] = !value;
-    console.log(this.state);
+    let videos = this.state.videos;
+    let filtVids = []
+    console.log(this.state.checkBoxes[name]);
+    videos.forEach((vid) => {
+      // console.log(vid.images[0].type === 'image/gif');
+      // console.log(vid);
+      if ( value === true && name === 'animated' && vid.images[0].type === 'image/gif') {
+        console.log('animated');
+        filtVids.push(vid);
+      }
+
+      if ( value === true && name === 'sfw' && vid.nsfw === true) {
+        console.log('no nsfw');
+        filtVids.push(vid);
+      }
+      // console.log(value, name, vid.in_most_viral);
+      if ( value === true && name === 'viral' && vid.in_most_viral === true) {
+        console.log('bingo');
+        filtVids.push(vid);
+      }
+
+    })
+    this.setState({
+      videos: filtVids
+    })
+
+    console.log(videos);
   }
   render() {
     const imgSearch = _.debounce((term) => {
@@ -71,11 +98,12 @@ class App extends Component {
         < VideoDetail video={ this.state.selectedVideo }/>
         < Checkboxes 
           changeBox= { this.changeBox }
-          checkBoxes= { this.state }
+          imgDisplayState= { this.state }
         />
         < VideoList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
-          videos={ this.state.videos } />
+          videos={ this.state.videos } 
+          filters={ this.state.checkBoxes } />
       </div>
     );
    }
