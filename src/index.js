@@ -17,12 +17,13 @@ class App extends Component {
       videos: [],
       selectedVideo: null,
       checkBoxes: {
-        viral: 0,
-        sfw: 0,
-        animated: 0
+        viral: false,
+        sfw: false,
+        animated: false
       }
     };
 
+    this.changeBox = this.changeBox.bind(this)
     this.imgSearch('cats');
   }
 
@@ -36,7 +37,6 @@ class App extends Component {
     }).then((res) => {
       return res.json();
     }).then ((data) => {
-      // console.log(data.data.items);
       let newData = [];
       for (let img in data.data.items) {
         if (data.data.items[img].images) {
@@ -53,6 +53,13 @@ class App extends Component {
     )
   }
 
+  // method used for handle checkbox events & filtering displayed videos
+  changeBox(e) {
+    let name = e.target.name;
+    let value = this.state.checkBoxes[name]
+    this.state.checkBoxes[name] = !value;
+    console.log(this.state);
+  }
   render() {
     const imgSearch = _.debounce((term) => {
       this.imgSearch(term)
@@ -63,7 +70,8 @@ class App extends Component {
         < SearchBar onSearchTermChange={ imgSearch }/>
         < VideoDetail video={ this.state.selectedVideo }/>
         < Checkboxes 
-          checkBoxes= { this.state.checkBoxes }
+          changeBox= { this.changeBox }
+          checkBoxes= { this.state }
         />
         < VideoList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
