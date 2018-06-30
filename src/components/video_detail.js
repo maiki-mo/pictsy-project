@@ -9,9 +9,9 @@ const VideoDetail = ({ video }) => {
   const url = video.heroImage.link
   
   return (
-    <div className="video-detail col-md-8">
+    <div id="selected-img" className="video-detail col-md-8">
       <div className="embed-responsive embed-responsive-16by9">
-        <img className="embed-responsive-item" src={url} />
+        <img id="img-display" className="embed-responsive-item" src={url} />
       </div>
       <div className="details">
         <div>{ video.name }</div>

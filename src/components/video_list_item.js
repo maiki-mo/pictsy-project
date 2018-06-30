@@ -4,7 +4,7 @@ const VideoListItem = ({ video, onVideoSelect }) => {
   const imgUrl = video.heroImage.link;
 
   return (
-    <li onClick={ () => onVideoSelect(video) } className="list-group-item">
+    <li style={{ display: 'inline-block' }} onClick={ () => onVideoSelect(video) } className="list-group-item">
       <div className="video-list media">
         <div className="media-left">
         <img style={{width: '200px'}} src={ imgUrl } ></img>

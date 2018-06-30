@@ -3,6 +3,15 @@
   text-align: center;
 }
 
+#selected-img {
+  width: 60vw;
+  margin: 0 auto 
+}
+
+#img-display {
+  width: 60vw;
+}
+
 .search-bar input {
   width: 75%;
 }
