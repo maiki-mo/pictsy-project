@@ -15,10 +15,10 @@ class App extends Component {
 
     this.state = {
       videos: [],
+      typVideos: [],
       selectedVideo: null,
       checkBoxes: {
         viral: true,
-        sfw: true,
         animated: true
       }
     };
@@ -47,6 +47,7 @@ class App extends Component {
       }
       this.setState({
         videos: newData,
+        typVideos: newData,
         selectedVideo: newData[0]
       })
       }
@@ -56,36 +57,29 @@ class App extends Component {
   // method used for handle checkbox events & filtering displayed videos
   changeBox(e) {
     // changes the current values of the checkBox states to either true || false for filtering
+    let originState = this.state.typVideos;
     let name = e.target.name;
     let value = this.state.checkBoxes[name]
     this.state.checkBoxes[name] = !value;
     let videos = this.state.videos;
     let filtVids = []
     console.log(this.state.checkBoxes[name]);
+    console.log(name);
+    console.log(value);
     videos.forEach((vid) => {
-      // console.log(vid.images[0].type === 'image/gif');
-      // console.log(vid);
-      if ( value === true && name === 'animated' && vid.images[0].type === 'image/gif') {
+      if (value === true && name === 'animated' && vid.images[0].type === 'image/gif') {
         console.log('animated');
         filtVids.push(vid);
-      }
-
-      if ( value === true && name === 'sfw' && vid.nsfw === true) {
-        console.log('no nsfw');
-        filtVids.push(vid);
-      }
-      // console.log(value, name, vid.in_most_viral);
-      if ( value === true && name === 'viral' && vid.in_most_viral === true) {
+      } else if (value === true && name === 'viral' && vid.in_most_viral === true) {
         console.log('bingo');
         filtVids.push(vid);
+      } else if (value === false) {
+        filtVids = originState
       }
-
     })
     this.setState({
       videos: filtVids
     })
-
-    console.log(videos);
   }
   render() {
     const imgSearch = _.debounce((term) => {
