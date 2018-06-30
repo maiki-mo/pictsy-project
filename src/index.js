@@ -6,25 +6,27 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import _ from 'lodash';
 import Fetch from 'whatwg-fetch';
+var apiKey = '9ed18dc91dbbcc7';
 
-var rootUrl = 'https://api.imgur.com/3/'
-var apiKey = process.env.IMGUR_CLIENT_ID
-
-console.log(apiKey);
 
 // const API_KEY = "AIzaSyDjAGBO-yMQ_dJZpho2JbtY_kLueEeNul0";
 
-window.api = function (url) {
-  return fetch(rootUrl + url, {
-    headers: {
-      'Authorization': 'Client-ID ' + apiKey
-    }
-  }).then ((res) => {
-    return res.json();
-  }).then ((data) => {
-    console.log(data);
-  })
-}
+// window.api = function (url) {
+//   var rootUrl = 'https://api.imgur.com/3/topics/';
+//   var apiKey = process.env.IMGUR_CLIENT_ID;
+//   return fetch(rootUrl + url, {
+//     headers: {
+//       'Authorization': 'Client-ID ' + apiKey
+//     }
+//   }).then ((res) => {
+//     return res.json();
+//   }).then ((data) => {
+//     console.log(data);
+//     // this.setState({
+//     //   videos: 
+//     // })
+//   })
+// }
 
 // create a new component
 // component produces some html
@@ -38,26 +40,33 @@ class App extends Component {
       selectedVideo: null
     };
 
-    this.videoSearch('robotics');
+    this.imgSearch('defaults');
   }
 
-  videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
+  imgSearch(term) {
+    var rootUrl = 'https://api.imgur.com/3/topics/';
+    return fetch(rootUrl + term, {
+      headers: {
+        'Authorization': 'Client-ID ' + apiKey
+      }
+    }).then ((res) => {
+      return res.json();
+    }).then ((data) => {
       this.setState({
-        videos: videos,
-        selectedVideo: videos[0]
-       });
-    });
+        videos: data.data,
+        selectedVideo: data.data[0]
+      })
+    })
   }
 
   render() {
-    const videoSearch = _.debounce((term) => {
-      this.videoSearch(term)
+    const imgSearch = _.debounce((term) => {
+      this.imgSearch(term)
     }, 300); 
 
     return (
       <div>
-      < SearchBar onSearchTermChange={ videoSearch }/>
+      < SearchBar onSearchTermChange={ imgSearch }/>
       < VideoDetail video={ this.state.selectedVideo }/>
       < VideoList 
         onVideoSelect={ selectedVideo => this.setState({ selectedVideo })}
