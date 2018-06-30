@@ -15,7 +15,12 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      checkBoxes: {
+        viral: 0,
+        sfw: 0,
+        animated: 0
+      }
     };
 
     this.imgSearch('cats');
@@ -57,7 +62,9 @@ class App extends Component {
       <div>
         < SearchBar onSearchTermChange={ imgSearch }/>
         < VideoDetail video={ this.state.selectedVideo }/>
-        < Checkboxes />
+        < Checkboxes 
+          checkBoxes= { this.state.checkBoxes }
+        />
         < VideoList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
           videos={ this.state.videos } />
