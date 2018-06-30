@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoListItem from './video_list_item';
+import VideoListItem from './image_list_item';
 
 const VideoList = (props) => {
 

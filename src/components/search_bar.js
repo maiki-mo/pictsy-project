@@ -15,9 +15,12 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
+      <h5>Type in subject to return pictures:</h5>
       <input 
-      value = {this.state.term}
-      onChange = {event => this.onInputChange(event.target.value) } />
+      style= {{ width: '500px', marginRight: '40px' }}
+      value= {this.state.term}
+      onChange= {event => this.onInputChange(event.target.value) } />
+      <input type="submit" style= {{ width: '100px' }} />
       </div>
     );
   };

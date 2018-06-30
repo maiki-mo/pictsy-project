@@ -23,9 +23,9 @@ const VideoDetail = ({ video }) => {
         <p>This is where comments will go.</p>
       </div>
       <div className="comment-form">
-        <input type="text" placeholder="Name" style={{ width: "100px", marginRight: '20px' }}/>
-        <input type="text" placeholder="Comment" style={{ width: "400px" }}/>
-        <input type="submit" />
+        <input type="text" placeholder="Name" style={{ width: "100px", marginLeft: '50px', marginRight: '40px' }}/>
+        <input type="text" placeholder="Comment" style={{ width: "400px", marginRight: '40px' }}/>
+        <input type="submit" style={{ width: '100px' }} />
       </div>
     </div>
     )
