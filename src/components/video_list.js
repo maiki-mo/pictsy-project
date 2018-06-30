@@ -2,10 +2,8 @@ import React from 'react';
 import VideoListItem from './video_list_item';
 
 const VideoList = (props) => {
-  let newVids = props.videos;
-  newVids.pop();
 
-  const videoItems = newVids.map((video) => {
+  const videoItems = props.videos.map((video) => {
     if (video.heroImage != null) {
       // console.log(video.heroImage.link);
     return (

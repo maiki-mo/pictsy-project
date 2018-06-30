@@ -46,7 +46,7 @@ class App extends Component {
       < SearchBar onSearchTermChange={ imgSearch }/>
       < VideoDetail video={ this.state.selectedVideo }/>
       < VideoList 
-        onVideoSelect={ selectedVideo => this.setState({ selectedVideo })}
+        onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
         videos={ this.state.videos } />
     </div>
     );
