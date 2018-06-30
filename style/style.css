@@ -9,8 +9,15 @@
 }
 
 #img-display {
-  width: 60vw;
-  height: 60vw;
+  width: 100%;
+}
+
+#check-boxes {
+  text-align: center;
+}
+
+#img-title {
+  text-align: center;
 }
 
 .search-bar input {

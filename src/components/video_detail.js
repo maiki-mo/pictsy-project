@@ -13,12 +13,11 @@ const VideoDetail = ({ video }) => {
   let imgUrl = video.images[0].link;
     return (
     <div id="selected-img">
+      <div id="img-title">
+        <h2>{ video.title }</h2>
+      </div>
       <div className="embed-responsive embed-responsive-16by9">
         <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
-      </div>
-      <div className="details">
-        <div>{ video.name }</div>
-        <div>{ video.title }</div>
       </div>
     </div>
     )

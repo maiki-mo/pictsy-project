@@ -4,7 +4,12 @@ class SearchBar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { term: '' }
+    this.state = {
+    term: '',
+    viralCheck: 0,
+    sfwCheck: 0,
+    animCheck: 0
+    }
   }
   
   render() {
@@ -12,10 +17,7 @@ class SearchBar extends Component {
       <div className="search-bar">
       <input 
       value = {this.state.term}
-      onChange = {event => this.onInputChange(event.target.value) } /> <br />
-      <input style={{ display: 'inline-block', width: '40px' }} type="checkbox" name="viral" /><label>Viral</label>
-      <input style={{ display: 'inline-block', width: '40px' }} type="checkbox" name="SFW"/><label>SFW</label>
-      <input style={{ display: 'inline-block', width: '40px' }} type="checkbox" name="Animated"/><label>Animated</label>
+      onChange = {event => this.onInputChange(event.target.value) } />
       </div>
     );
   };

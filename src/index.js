@@ -4,6 +4,7 @@ import SearchBar from './components/search_bar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
+import Checkboxes from './components/checkboxes';
 import apiKey from './../config/keys';
 import _ from 'lodash';
 import Fetch from 'whatwg-fetch';
@@ -14,10 +15,7 @@ class App extends Component {
 
     this.state = {
       videos: [],
-      selectedVideo: null,
-      viralCheck: 0,
-      sfwCheck: 0,
-      animCheck: 0
+      selectedVideo: null
     };
 
     this.imgSearch('cats');
@@ -42,7 +40,6 @@ class App extends Component {
           }
         }
       }
-      
       this.setState({
         videos: newData,
         selectedVideo: newData[0]
@@ -60,6 +57,7 @@ class App extends Component {
       <div>
         < SearchBar onSearchTermChange={ imgSearch }/>
         < VideoDetail video={ this.state.selectedVideo }/>
+        < Checkboxes />
         < VideoList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
           videos={ this.state.videos } />
@@ -67,7 +65,5 @@ class App extends Component {
     );
    }
 };
-
-// make sure it finds its way into the dom
 
 ReactDOM.render(<App />, document.querySelector('.container'));
