@@ -18,13 +18,14 @@ const VideoDetail = ({ video }) => {
       <div className="embed-responsive embed-responsive-16by9">
         <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
       </div>
-      <div>
-        <p>This is where comments will go.</p>
+      <div className="comment-section">
       </div>
       <div className="comment-form">
+      <form>
         <input type="text" placeholder="Name" style={{ width: "100px", marginLeft: '50px', marginRight: '40px' }}/>
         <input type="text" placeholder="Comment" style={{ width: "400px", marginRight: '40px' }}/>
         <input type="submit" style={{ width: '100px' }} />
+      </form>
       </div>
     </div>
     )
