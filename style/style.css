@@ -27,6 +27,10 @@
   list-style: none;
 }
 
+.img-list-li:hover {
+  cursor: pointer;
+}
+
 .list-img {
   width: 200px;
   display: inline-block;

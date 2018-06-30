@@ -63,25 +63,25 @@ class App extends Component {
     this.state.checkBoxes[name] = !value;
     let videos = this.state.videos;
     let filtVids = []
-    console.log(this.state.checkBoxes[name]);
-    console.log(name);
-    console.log(value);
+    // loop through videos array and check for filters
     videos.forEach((vid) => {
       if (value === true && name === 'animated' && vid.images[0].type === 'image/gif') {
-        console.log('animated');
         filtVids.push(vid);
       } else if (value === true && name === 'viral' && vid.in_most_viral === true) {
-        console.log('bingo');
         filtVids.push(vid);
       } else if (value === false) {
         filtVids = originState
       }
     })
+    //sets the state based on above conditions
     this.setState({
       videos: filtVids
     })
   }
+
+    // renders components to the DOM
   render() {
+    // limits time between state changes with search
     const imgSearch = _.debounce((term) => {
       this.imgSearch(term)
     }, 300); 
@@ -97,7 +97,8 @@ class App extends Component {
         < VideoList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
           videos={ this.state.videos } 
-          filters={ this.state.checkBoxes } />
+          filters={ this.state.checkBoxes }
+        />
       </div>
     );
    }
