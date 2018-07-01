@@ -1,0 +1,29 @@
+$title-font: 'Galada', cursive;
+$content-font: 'Poppins', sans-serif;
+
+header {
+  height: 20vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+
+  h1 {
+    display: inline-block;
+    width: 20vw;
+    font-family: $title-font;
+    margin-left: 3vw;
+    font-size: 3vw;
+  }
+
+  .search_bar {
+    padding-top: 2vw;
+    display: inline-block;
+    width: 80vw;
+  }
+
+}
+
+h5 {
+  display: inline-block;
+  margin-right: 5vw;
+}

@@ -94,19 +94,26 @@ class App extends Component {
     }, 300); 
 
     return (
-      <div>
-        < SearchBar onSearchTermChange={ imgSearch }/>
-        < ImageDetail image={ this.state.selectedImage }/>
-        < Checkboxes 
-          changeBox= { this.changeBox }
-          imgDisplayState= { this.state }
-        />
-        < ImageList 
-          onImageSelect={ selectedImage => this.setState( { images: this.state.images, selectedImage: selectedImage } )}
-          images={ this.state.images } 
-          filters={ this.state.checkBoxes }
-        />
-      </div>
+      <section>
+        <header>
+          <h1>Pictsy</h1>
+          < SearchBar onSearchTermChange={ imgSearch }/>
+        </header>
+        <main>
+          < ImageDetail image={ this.state.selectedImage }/>
+          < Checkboxes 
+            changeBox= { this.changeBox }
+            imgDisplayState= { this.state }
+          />
+        </main>
+        <aside>
+          < ImageList 
+            onImageSelect={ selectedImage => this.setState( { images: this.state.images, selectedImage: selectedImage } )}
+            images={ this.state.images } 
+            filters={ this.state.checkBoxes }
+          />
+        </aside>
+      </section>
     );
    }
 };
