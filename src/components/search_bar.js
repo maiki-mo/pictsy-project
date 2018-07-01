@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
+// creates a class component that serves as our searchbar
 class SearchBar extends Component {
-
+// extends React component 
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,7 @@ class SearchBar extends Component {
       </div>
     );
   };
-
+// changes the state of the 'search' term as well as calls the prop method from index.js
   onInputChange(term) {
     this.setState({term});
     this.props.onSearchTermChange(term);

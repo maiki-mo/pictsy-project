@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './components/search_bar';
 import YTSearch from 'youtube-api-search';
-import VideoList from './components/image_list';
-import VideoDetail from './components/image_detail';
+import ImageList from './components/image_list';
+import ImageDetail from './components/image_detail';
 import Checkboxes from './components/checkboxes';
 import apiKey from './../config/keys';
 import _ from 'lodash';
@@ -12,7 +12,7 @@ import Fetch from 'whatwg-fetch';
 class App extends Component {
   constructor(props) {
     super(props);
-
+    // setting the initial state
     this.state = {
       videos: [],
       typVideos: [],
@@ -22,21 +22,26 @@ class App extends Component {
         animated: true
       }
     };
-
+    //bind allows us to refer to the below changeBox method
     this.changeBox = this.changeBox.bind(this)
+    // initial search term is 'cats', because everyone looks up cats
     this.imgSearch('cats');
   }
 
+  //imgSearch gets called when the searchbar's 'term' is changed
+
   imgSearch(term) {
     var rootUrl = 'https://api.imgur.com/3/gallery/t/';
-
+    // fetches metadata from api with an API header
     return fetch(rootUrl + term, {
       headers: {
         'Authorization': 'Client-ID ' + apiKey
       }
     }).then((res) => {
+    // fetch responds and we turn it into json data
       return res.json();
     }).then ((data) => {
+    // now the data is manageable 
       let newData = [];
       for (let img in data.data.items) {
         if (data.data.items[img].images) {
@@ -45,6 +50,7 @@ class App extends Component {
           }
         }
       }
+    // state is set with an array of objects
       this.setState({
         videos: newData,
         typVideos: newData,
@@ -81,7 +87,7 @@ class App extends Component {
 
     // renders components to the DOM
   render() {
-    // limits time between state changes with search
+    // uses lodash to limit time between state changes with search (otherwise state would update with each keystroke)
     const imgSearch = _.debounce((term) => {
       this.imgSearch(term)
     }, 300); 
@@ -89,12 +95,12 @@ class App extends Component {
     return (
       <div>
         < SearchBar onSearchTermChange={ imgSearch }/>
-        < VideoDetail video={ this.state.selectedVideo }/>
+        < ImageDetail video={ this.state.selectedVideo }/>
         < Checkboxes 
           changeBox= { this.changeBox }
           imgDisplayState= { this.state }
         />
-        < VideoList 
+        < ImageList 
           onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
           videos={ this.state.videos } 
           filters={ this.state.checkBoxes }
