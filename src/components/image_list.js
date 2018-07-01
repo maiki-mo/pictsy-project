@@ -8,7 +8,8 @@ const VideoList = (props) => {
       <VideoListItem
       onVideoSelect={props.onVideoSelect}
       key={ video.id }
-      video={ video } />
+      video={ video }
+      />
     )
     }
   })

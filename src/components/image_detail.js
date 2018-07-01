@@ -9,8 +9,8 @@ const makeComment = (e) => {
   let liText = document.createTextNode(`${name.value}: ${post.value}`);
   li.appendChild(liText);
 
-  if (name.value.length < 2 || post.value.length < 10) {
-    alert('Name or Comment not long enough')
+  if (name.value.length < 2 || post.value.length < 10 || post.value.length > 100) {
+    alert('Name or Comment invalid')
   } else container.appendChild(li);
   name.value = '';
   post.value = '';
