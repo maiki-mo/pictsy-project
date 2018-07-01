@@ -16,20 +16,20 @@ const makeComment = (e) => {
   post.value = '';
 }
 
-const VideoDetail = ({ video }) => {
-  if (!video) {
+const ImageDetail = ({ image }) => {
+  if (!image) {
     return <div>No results...</div>
   }
 
-  if (video.length < 5) {
+  if (image.length < 5) {
     return <div>Not enough matches.  Try again.</div>
   }
   
-  let imgUrl = video.images[0].link;
+  let imgUrl = image.images[0].link;
     return (
     <div id="selected-img">
       <div id="img-title">
-        <h2>{ video.title }</h2>
+        <h2>{ image.title }</h2>
       </div>
       <div className="embed-responsive embed-responsive-16by9">
         <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
@@ -47,4 +47,4 @@ const VideoDetail = ({ video }) => {
     )
 };
 
-export default VideoDetail;
+export default ImageDetail;

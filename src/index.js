@@ -14,9 +14,9 @@ class App extends Component {
     super(props);
     // setting the initial state
     this.state = {
-      videos: [],
-      typVideos: [],
-      selectedVideo: null,
+      images: [],
+      typImages: [],
+      selectedImage: null,
       checkBoxes: {
         viral: true,
         animated: true
@@ -52,36 +52,37 @@ class App extends Component {
       }
     // state is set with an array of objects
       this.setState({
-        videos: newData,
-        typVideos: newData,
-        selectedVideo: newData[0]
+        images: newData,
+        typImages: newData,
+        selectedImage: newData[0]
       })
       }
     )
   }
 
-  // method used for handle checkbox events & filtering displayed videos
+  // method used for handle checkbox events & filtering displayed images
   changeBox(e) {
     // changes the current values of the checkBox states to either true || false for filtering
-    let originState = this.state.typVideos;
+    let originState = this.state.typImages;
     let name = e.target.name;
     let value = this.state.checkBoxes[name]
     this.state.checkBoxes[name] = !value;
-    let videos = this.state.videos;
-    let filtVids = []
-    // loop through videos array and check for filters
-    videos.forEach((vid) => {
-      if (value === true && name === 'animated' && vid.images[0].type === 'image/gif') {
-        filtVids.push(vid);
-      } else if (value === true && name === 'viral' && vid.in_most_viral === true) {
-        filtVids.push(vid);
+    let images = this.state.images;
+    let filtImgs = []
+    // loop through images array and check for filters
+    images.forEach((img) => {
+      console.log(img);
+      if (value === true && name === 'animated' && img.images[0].type === 'image/gif') {
+        filtImgs.push(img);
+      } else if (value === true && name === 'viral' && img.in_most_viral === true) {
+        filtImgs.push(img);
       } else if (value === false) {
-        filtVids = originState
+        filtImgs = originState
       }
     })
     //sets the state based on above conditions
     this.setState({
-      videos: filtVids
+      images: filtImgs
     })
   }
 
@@ -95,14 +96,14 @@ class App extends Component {
     return (
       <div>
         < SearchBar onSearchTermChange={ imgSearch }/>
-        < ImageDetail video={ this.state.selectedVideo }/>
+        < ImageDetail image={ this.state.selectedImage }/>
         < Checkboxes 
           changeBox= { this.changeBox }
           imgDisplayState= { this.state }
         />
         < ImageList 
-          onVideoSelect={ selectedVideo => this.setState( { videos: this.state.videos, selectedVideo: selectedVideo } )}
-          videos={ this.state.videos } 
+          onImageSelect={ selectedImage => this.setState( { images: this.state.images, selectedImage: selectedImage } )}
+          images={ this.state.images } 
           filters={ this.state.checkBoxes }
         />
       </div>

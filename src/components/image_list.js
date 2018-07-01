@@ -1,14 +1,14 @@
 import React from 'react';
-import VideoListItem from './image_list_item';
+import ImageListItem from './image_list_item';
 
-const VideoList = (props) => {
-  const videoItems = props.videos.map((video) => {
-    if (video != null) {
+const ImageList = (props) => {
+  const imageItems = props.images.map((image) => {
+    if (image != null) {
     return (
-      <VideoListItem
-      onVideoSelect={props.onVideoSelect}
-      key={ video.id }
-      video={ video }
+      <ImageListItem
+      onImageSelect={props.onImageSelect}
+      key={ image.id }
+      image={ image }
       />
     )
     }
@@ -17,10 +17,10 @@ const VideoList = (props) => {
   <div>
     <br />
     <ul className="img-list">
-      { videoItems }
+      { imageItems }
     </ul>
   </div>
   )
 }
 
-export default VideoList;
+export default ImageList;

@@ -6,14 +6,14 @@ let removeComments = (e) => {
   console.log(wipe);
 }
 
-const VideoListItem = ({ video, onVideoSelect }) => {
-  let imgUrl = video.images[0].link;
+const ImageListItem = ({ image, onImageSelect }) => {
+  let imgUrl = image.images[0].link;
 
   return (
-    <li className="img-list-li" onClick={ () => onVideoSelect(video) } >
+    <li className="img-list-li" onClick={ () => onImageSelect(image) } >
         <a href="#img-title"><img onClick={ removeComments } className="list-img" src={ imgUrl } ></img></a>
     </li>
   )
 };
 
-export default VideoListItem;
+export default ImageListItem;
