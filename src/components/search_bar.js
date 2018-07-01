@@ -14,6 +14,7 @@ class SearchBar extends Component {
       <div className="search-bar">
       <h5>Type in subject to return pictures:</h5>
       <input 
+      placeholder='cats'
       style= {{ width: '500px', marginRight: '40px' }}
       value= {this.state.term}
       onChange= {event => this.onInputChange(event.target.value) } />
