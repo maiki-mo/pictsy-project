@@ -71,7 +71,6 @@ class App extends Component {
     let filtImgs = []
     // loop through images array and check for filters
     images.forEach((img) => {
-      console.log(img);
       if (value === true && name === 'animated' && img.images[0].type === 'image/gif') {
         filtImgs.push(img);
       } else if (value === true && name === 'viral' && img.in_most_viral === true) {
@@ -80,6 +79,15 @@ class App extends Component {
         filtImgs = originState
       }
     })
+
+    //checks for a possible lack of videos in filter
+
+    if (filtImgs.length < 1) {
+      alert('No images returned for this filter')
+      filtImgs = originState;
+      e.target.checked = !e.target.checked;
+    }
+
     //sets the state based on above conditions
     this.setState({
       images: filtImgs
