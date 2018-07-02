@@ -28,12 +28,8 @@ const ImageDetail = ({ image }) => {
   let imgUrl = image.images[0].link;
     return (
     <div id="selected-img">
-      <div id="img-title">
-        <h2>{ image.title }</h2>
-      </div>
-      <div className="embed-responsive embed-responsive-16by9">
         <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
-      </div>
+        <h2 id="selected-image-title">{ image.title }</h2>
       <div className="comment-section">
       </div>
       <div className="comment-form">

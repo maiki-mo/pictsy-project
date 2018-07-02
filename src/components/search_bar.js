@@ -13,7 +13,6 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="search-bar">
-      <h5>Type in subject to return pictures:</h5>
       <input 
       placeholder='cats'
       style= {{ width: '500px', marginRight: '40px' }}

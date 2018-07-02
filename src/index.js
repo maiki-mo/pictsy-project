@@ -96,23 +96,26 @@ class App extends Component {
     return (
       <section>
         <header>
+          <img id="logo-img" src="./../images/polaroid.png" />
           <h1>Pictsy</h1>
           < SearchBar onSearchTermChange={ imgSearch }/>
         </header>
         <main>
+          <section id="hero-img">
           < ImageDetail image={ this.state.selectedImage }/>
+          </section>
+        <aside>
           < Checkboxes 
             changeBox= { this.changeBox }
             imgDisplayState= { this.state }
           />
-        </main>
-        <aside>
           < ImageList 
             onImageSelect={ selectedImage => this.setState( { images: this.state.images, selectedImage: selectedImage } )}
             images={ this.state.images } 
             filters={ this.state.checkBoxes }
           />
         </aside>
+        </main>
       </section>
     );
    }

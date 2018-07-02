@@ -11,7 +11,7 @@ const ImageListItem = ({ image, onImageSelect }) => {
 
   return (
     <li className="img-list-li" onClick={ () => onImageSelect(image) } >
-        <a href="#img-title"><img onClick={ removeComments } className="list-img" src={ imgUrl } ></img></a>
+        <a href="#body"><img onClick={ removeComments } className="list-img" src={ imgUrl } ></img></a>
     </li>
   )
 };
