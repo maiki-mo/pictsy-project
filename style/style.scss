@@ -119,3 +119,24 @@ h5 {
   padding-top: 20px;
   width: 340px;
 }
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+  main {
+    display: inline-block;
+  }
+
+  #hero-img {
+    width: 667px;
+  
+    #selected-img {
+      margin: 2px auto;
+      padding: 0;
+      width: 500px;
+      img {
+        width: 450px
+      }
+    }
+  }
+}
