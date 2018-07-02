@@ -12,7 +12,9 @@ main {
 
 #hero-img {
   grid-column: 1;
-  width: 70vw; }
+  width: 900px;
+  margin: 0 auto;
+  height: 44.5vw; }
   #hero-img #selected-img {
     text-align: center;
     width: 50vw;
@@ -23,15 +25,16 @@ main {
     width: 50vw; }
   #hero-img h2 {
     margin: 0 auto;
-    font-family: 'Pacifico', cursive;
-    font-size: 50px;
-    height: 100px; }
+    font-family: "Permanent Marker", cursive;
+    font-size: 40px;
+    padding-bottom: 10px; }
 
 header {
   display: flex;
   flex-direction: row;
   grid-row: 1;
-  height: 60px; }
+  height: 60px;
+  max-width: 1400px; }
   header h1 {
     display: inline-block;
     width: 200px;
@@ -57,14 +60,22 @@ header {
 
 .img-list {
   display: flex;
-  flex-direction: column;
-  width: 300px; }
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  background-color: white;
+  padding-top: 10px; }
+  .img-list li {
+    list-style: none; }
+  .img-list li > a > img {
+    margin-left: -15px;
+    width: 120px;
+    margin: 0 10px; }
+  .img-list .img-list-li {
+    margin-left: -5px; }
 
 h5 {
   display: inline-block;
   margin-right: 5vw; }
-
-.list-img {
-  width: 20vw; }
 
 /*# sourceMappingURL=style.css.map */
