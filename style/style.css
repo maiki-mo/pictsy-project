@@ -34,7 +34,7 @@ main {
   #hero-img h2 {
     margin: 0 auto;
     font-family: "Quicksand", sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     padding-bottom: 10px; }
 
 header {
@@ -69,7 +69,8 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   width: 300px;
-  padding-top: 10px; }
+  padding-top: 10px;
+  padding-left: 50px; }
   .img-list li {
     list-style: none; }
   .img-list li > a > img {
@@ -90,8 +91,71 @@ h5 {
 #check-boxes {
   background-color: white;
   padding-top: 20px;
-  width: 340px;
-  border-radius: 4px; }
+  width: 320px;
+  margin: 20px 0 0 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px black;
+  height: 30px;
+  padding: 18px 10px 10px 10px;
+  text-align: center; }
+  #check-boxes label {
+    background-color: lightgrey;
+    padding: 10px;
+    margin: 0 20px;
+    border-radius: 4px;
+    font-family: "Poppins", sans-serif; }
+
+.comment-section {
+  list-style: none;
+  text-align: left; }
+  .comment-section .comment-div {
+    background-color: lightgrey;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 8px 0; }
+    .comment-section .comment-div h4 {
+      background-color: white;
+      display: inline-block;
+      margin: 0;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: "Poppins", sans-serif; }
+    .comment-section .comment-div p {
+      background-color: white;
+      display: block;
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-family: "Poppins", sans-serif; }
+
+.comment-form {
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center; }
+  .comment-form #cmnt-name {
+    width: 100px;
+    border: 0;
+    border-radius: 4px;
+    padding-left: 4px;
+    height: 30px; }
+  .comment-form #cmnt-post {
+    width: 400px;
+    margin: 0 20px;
+    border: 0;
+    border-radius: 4px;
+    padding-left: 4px;
+    height: 30px; }
+  .comment-form #submit-button {
+    border: 0;
+    background-color: white;
+    border-radius: 4px;
+    height: 30px;
+    width: 80px; }
+  .comment-form #submit-button:hover {
+    background-color: darkgrey;
+    cursor: pointer; }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   main {
