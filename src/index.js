@@ -96,7 +96,6 @@ class App extends Component {
     return (
       <section>
         <header>
-          <img id="logo-img" src="./../images/polaroid.png" />
           <h1>Pictsy</h1>
           < SearchBar onSearchTermChange={ imgSearch }/>
         </header>

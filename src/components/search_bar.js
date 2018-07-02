@@ -14,11 +14,9 @@ class SearchBar extends Component {
     return (
       <div className="search-bar">
       <input 
-      placeholder='cats'
-      style= {{ width: '500px', marginRight: '40px' }}
+      placeholder='Search through Pictsy: ex: "Cats"'
       value= {this.state.term}
       onChange= {event => this.onInputChange(event.target.value) } />
-      <input type="submit" style= {{ width: '100px' }} />
       </div>
     );
   };
