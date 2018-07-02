@@ -85,7 +85,6 @@ class App extends Component {
     if (filtImgs.length < 1) {
       alert('No images returned for this filter')
       filtImgs = originState;
-      e.target.checked = !e.target.checked;
     }
 
     //sets the state based on above conditions
