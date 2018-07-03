@@ -85,6 +85,12 @@ class App extends Component {
     if (filtImgs.length < 1) {
       alert('No images returned for this filter')
       filtImgs = originState;
+      this.setState({
+        checkBoxes: {
+          viral: true,
+          animated: true
+        }
+      })
     }
 
     //sets the state based on above conditions

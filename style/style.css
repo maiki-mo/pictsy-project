@@ -97,14 +97,18 @@ h5 {
   border-radius: 4px;
   box-shadow: 2px 2px 4px black;
   height: 30px;
-  padding: 18px 10px 10px 10px;
+  padding: 11px 10px 10px 10px;
   text-align: center; }
-  #check-boxes label {
+  #check-boxes input[type="button"] {
     background-color: lightgrey;
-    padding: 10px;
+    width: 100px;
+    padding: 4px 0;
     margin: 0 20px;
+    border: 0;
     border-radius: 4px;
     font-family: "Poppins", sans-serif; }
+  #check-boxes input[type="button"]:hover {
+    background-color: darkgrey; }
 
 .comment-section {
   list-style: none;
