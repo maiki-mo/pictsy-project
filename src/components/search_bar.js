@@ -16,7 +16,7 @@ class SearchBar extends Component {
       <input 
       placeholder='Search through Pictsy (ex: "Cats"):'
       value= {this.state.term}
-      onChange= {event => this.onInputChange(event.target.value) } />
+      onChange= {e => this.onInputChange(e.target.value) } />
       </div>
     );
   };

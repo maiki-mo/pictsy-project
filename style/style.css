@@ -76,7 +76,7 @@ header {
   flex-wrap: wrap;
   width: 300px;
   padding-top: 10px;
-  padding-left: 100px; }
+  padding-left: 50px; }
   .img-list li {
     list-style: none; }
   .img-list li > a > img {
@@ -193,7 +193,8 @@ h5 {
 
   .img-list {
     margin: 0 auto;
-    width: 950px; }
+    width: 950px;
+    padding-left: 100px; }
 
   .img-list li > a > img {
     width: 150px;
