@@ -30,4 +30,4 @@ Run using
 npm start
 ```
 
-Open your browser to localhost://8080 and enjoy.
+Open your browser to localhost:8080 and enjoy.
