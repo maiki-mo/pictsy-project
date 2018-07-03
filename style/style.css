@@ -233,7 +233,8 @@ h5 {
     font-size: 8px; }
 
   .container {
-    background-repeat: repeat; }
+    background-repeat: repeat;
+    background-size: 150%; }
 
   #hero-img #selected-img {
     width: 436px;

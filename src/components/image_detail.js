@@ -22,18 +22,14 @@ const makeComment = (e) => {
 }
 
 const ImageDetail = ({ image }) => {
-  if (!image) {
-    return <div>No results...</div>
+  if (!image || image.length < 3) {
+    return <div id="selected-img"><h2>No results...</h2><img id="img-display" src='./../../images/no-results.png' /></div>
   }
 
-  if (image.length < 5) {
-    return <div>Not enough matches.  Try again.</div>
-  }
-  
   let imgUrl = image.images[0].link;
     return (
     <div id="selected-img">
-        <img id="img-display" className="embed-responsive-item" src={ imgUrl } />
+        <img id="img-display" src={ imgUrl } />
         <h2 id="selected-image-title">{ image.title }</h2>
       <div className="comment-section">
       </div>
