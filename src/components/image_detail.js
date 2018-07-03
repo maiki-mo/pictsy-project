@@ -13,7 +13,7 @@ const makeComment = (e) => {
   li.innerHTML = `<div class="comment-div"><h4>${name.value}</h4> <h4>${date}</h4> <br /> <p>${post.value}</p></div>`;
 
   // light restiction on forms
-  if (name.value.length < 2 || post.value.length < 10 || post.value.length > 100) {
+  if (name.value.length < 2 || post.value.length < 3 || post.value.length > 100) {
     alert('Name or Comment invalid')
     return;
   } else container.appendChild(li);
