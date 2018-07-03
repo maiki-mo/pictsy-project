@@ -100,7 +100,7 @@ header {
   flex-wrap: wrap;
   width: 300px;
   padding-top: 10px;
-  padding-left: 50px;
+  padding-left: 100px;
 
   li {
     list-style: none;
@@ -269,6 +269,11 @@ h5 {
   .img-list li > a > img {
     width: 150px;
     padding: 4px 4px 40px 4px;
+  }
+
+  .container {
+    background-repeat: repeat;
+    background-size: 150%;
   }
 
 }
