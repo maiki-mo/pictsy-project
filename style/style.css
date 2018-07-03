@@ -206,19 +206,20 @@ h5 {
       width: 0; }
       header .search-bar input {
         display: inline-block;
-        width: 250px;
+        width: 340px;
         height: 50px; }
 
   #hero-img {
-    width: 470px; }
+    width: 470px;
+    margin: 0; }
     #hero-img h2 {
       font-size: 16px; }
 
   .comment-form #cmnt-name {
-    width: 290px; }
+    width: 400px; }
 
   .comment-form #cmnt-post {
-    width: 290px;
+    width: 400px;
     margin: 4px 0; }
 
   .comment-section .comment-div h4 {
@@ -228,23 +229,23 @@ h5 {
     background-repeat: repeat; }
 
   #hero-img #selected-img {
-    width: 320px;
+    width: 436px;
     margin: 20px 0px 0px 2px; }
 
   #hero-img img {
-    width: 300px; }
+    width: 400px; }
 
   #check-boxes {
-    margin: 8px 0 0 7px;
+    margin: 8px 0 0 55px;
     width: 340px; }
 
   .img-list {
     margin: 0;
     width: 400px;
-    padding-left: 38px; }
+    padding-left: 63px; }
 
   .img-list li > a > img {
-    width: 140px;
+    width: 160px;
     padding: 4px 4px 40px 4px; } }
 
 /*# sourceMappingURL=style.css.map */
