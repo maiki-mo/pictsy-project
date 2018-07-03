@@ -22,6 +22,8 @@ const makeComment = (e) => {
 }
 
 const ImageDetail = ({ image }) => {
+  
+  // checks to make sure there are enough results from the fetch
   if (!image || image.length < 3) {
     return <div id="selected-img"><h2>No results...</h2><img id="img-display" src='./../../images/no-results.png' /></div>
   }
