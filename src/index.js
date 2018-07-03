@@ -5,7 +5,6 @@ import YTSearch from 'youtube-api-search';
 import ImageList from './components/image_list';
 import ImageDetail from './components/image_detail';
 import Checkboxes from './components/checkboxes';
-import apiKey from './../config/keys';
 import _ from 'lodash';
 import Fetch from 'whatwg-fetch';
 
