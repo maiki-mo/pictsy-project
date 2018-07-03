@@ -65,6 +65,9 @@ header {
       padding-left: 4px;
       width: 400px; }
 
+#img-container {
+  width: 350px; }
+
 .img-list {
   display: flex;
   flex-direction: row;

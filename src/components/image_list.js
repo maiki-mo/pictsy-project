@@ -14,7 +14,7 @@ const ImageList = (props) => {
     }
   })
   return (
-  <div>
+  <div id="img-container">
     <br />
     <ul className="img-list">
       { imageItems }
